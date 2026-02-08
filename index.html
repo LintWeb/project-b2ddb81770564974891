@@ -74,21 +74,91 @@
             margin: 0 auto;
         }
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: white;
-            text-align: center;
-            padding: 8rem 1rem 5rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.3) 0%, transparent 50%);
+            z-index: 1;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-text {
+            text-align: left;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #fff, #a8edea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #a8edea;
             margin-bottom: 1rem;
+            font-weight: 300;
         }
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        .hero-image {
+            text-align: center;
+        }
+        .hero-avatar {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid #a8edea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            font-weight: bold;
+        }
+        .hero .btn {
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        .hero .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #a8edea;
+            color: #a8edea;
+        }
+        .hero .btn-secondary:hover {
+            background-color: #a8edea;
+            color: #0f0f23;
         }
         .btn {
             display: inline-block;
@@ -262,11 +332,27 @@
             .menu-toggle {
                 display: flex;
             }
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            .hero-text {
+                text-align: center;
+            }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
             .hero p {
                 font-size: 1rem;
+            }
+            .hero-avatar {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
             }
             .about {
                 flex-direction: column;
@@ -280,8 +366,16 @@
             .hero h1 {
                 font-size: 4rem;
             }
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
             .hero p {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+            .hero-avatar {
+                width: 300px;
+                height: 300px;
+                font-size: 6rem;
             }
         }
     </style>
@@ -306,9 +400,18 @@
 
     <main>
         <section id="hero" class="hero">
-            <h1>Atef Abrar</h1>
-            <p>Full Stack Web Developer specializing in modern web technologies and scalable solutions</p>
-            <a href="#contact" class="btn">Get In Touch</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Atef Abrar</h1>
+                    <p class="hero-subtitle">Full Stack Web Developer</p>
+                    <p>Specializing in modern web technologies and scalable solutions. I create digital experiences that combine beautiful design with powerful functionality.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="#portfolio" class="btn btn-secondary">View My Work</a>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-avatar">AA</div>
+                </div>
+            </div>
         </section>
 
         <section id="about" class="about">
