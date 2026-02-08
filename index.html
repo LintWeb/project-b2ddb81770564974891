@@ -3,9 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>project-b2ddb81770564974891</title>
+    <title>Atef Abrar - Full Stack Web Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        main {
+            margin-top: 80px;
+        }
+        section {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem 5rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .about {
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+        }
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .skills {
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .skill-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        .portfolio {
+            background-color: #fff;
+            text-align: center;
+        }
+        .portfolio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .portfolio-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .portfolio-item h3 {
+            padding: 1rem;
+            font-size: 1.3rem;
+            color: #2c3e50;
+        }
+        .portfolio-item p {
+            padding: 0 1rem 1rem;
+            color: #666;
+        }
+        .contact {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact-form button {
+            padding: 0.8rem 2rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .about {
+                flex-direction: column;
+            }
+            .about-content,
+            .about-image {
+                text-align: center;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .hero p {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Blank white page -->
+    <header>
+        <nav>
+            <div class="logo">Atef Abrar</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <h1>Atef Abrar</h1>
+            <p>Full Stack Web Developer specializing in modern web technologies and scalable solutions</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I'm Atef Abrar, a passionate full-stack web developer with expertise in building robust and scalable web applications. With years of experience in both frontend and backend development, I specialize in creating user-centric solutions that drive business growth.</p>
+                <p>My approach combines technical proficiency with creative problem-solving to deliver high-quality, maintainable code that meets both user needs and business objectives.</p>
+                <a href="#portfolio" class="btn">View My Work</a>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/400x400/3498db/ffffff?text=AA" alt="Atef Abrar - Full Stack Developer">
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>My Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend Development</h3>
+                    <p>React, Vue.js, Angular, HTML5, CSS3, JavaScript, TypeScript</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend Development</h3>
+                    <p>Node.js, Python, PHP, Express, Django, Laravel, REST APIs</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Database & Cloud</h3>
+                    <p>MongoDB, PostgreSQL, MySQL, AWS, Docker, Kubernetes</p>
+                </div>
+                <div class="skill-card">
+                    <h3>DevOps & Tools</h3>
+                    <p>Git, CI/CD, Jenkins, Linux, Agile methodologies</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <h2>Featured Projects</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/3498db/ffffff?text=E-Commerce+Platform" alt="E-Commerce Platform">
+                    <h3>E-Commerce Platform</h3>
+                    <p>Full-stack e-commerce solution with React frontend, Node.js backend, and MongoDB database.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/2ecc71/ffffff?text=Task+Management+App" alt="Task Management App">
+                    <h3>Task Management App</h3>
+                    <p>Collaborative task management application built with Vue.js and Firebase.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=Portfolio+Website" alt="Portfolio Website">
+                    <h3>Portfolio Website</h3>
+                    <p>Responsive portfolio website showcasing modern web development techniques.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Let's Work Together</h2>
+            <p>Ready to bring your ideas to life? Get in touch and let's discuss your project.</p>
+            <form class="contact-form" action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Atef Abrar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
